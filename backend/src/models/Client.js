@@ -23,7 +23,7 @@ const Client = sequelize.define('Client', {
     type: DataTypes.TEXT // Tipo de dato: TEXT (TEXTO en SQL)
   },
   createdBy: {
-    type: DataTypes.INTEGER, // Tipo de dato: INTEGER (Numeros con punto en SQL)
+    type: DataTypes.INTEGER, // Tipo de dato: INTEGER (Numero entero en SQL)
     allowNull: false
   }
 });
