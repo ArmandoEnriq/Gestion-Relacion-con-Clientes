@@ -14,7 +14,7 @@ const createClient = async (req, res) => { // Funcion para crear clientes
       phone,
       company,
       notes,
-      createdBy: req.user.name //Cambiamos id por name
+      createdBy: req.user.id
     });
     res.status(201).json(client);
   } catch (err) {
