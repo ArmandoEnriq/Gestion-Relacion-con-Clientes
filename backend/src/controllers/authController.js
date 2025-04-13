@@ -14,7 +14,7 @@ const register = async (req, res) => {
   }
 };
 
-const login = async (req, res) => {
+const login = async (req, res, next) => {
   const { email, password } = req.body;  // Extrae email y password del cuerpo de la petición
   try {
     const user = await User.findOne({ where: { email } }); // Busca el usuario por email

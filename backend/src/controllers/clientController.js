@@ -2,7 +2,7 @@ const Client = require('../models/Client'); // Modelo de clientes de Sequelize
 const createError = require('http-errors'); // Creador de errores que podemos manejar
 const { Op } = require('sequelize'); // Op contiene operadores especiales que Sequelize utiliza para crear consultas más complejas y expresivas con SQL.
 
-const createClient = async (req, res) => { // Funcion para crear clientes
+const createClient = async (req, res, next) => { // Funcion para crear clientes
   try {
     const { name, email, phone, company, notes } = req.body; // Extrae datos del cuerpo de la petición
     // Si es un admin, se permite cualquier usuario a cualquier empleado
@@ -23,7 +23,7 @@ const createClient = async (req, res) => { // Funcion para crear clientes
 };
 
 //Obtener usuarios por medio de filtros
-const getClients = async (req, res) => {
+const getClients = async (req, res, next) => {
   try {
     const { name, company, limit, offset, order, direction } = req.query;
 
@@ -60,7 +60,7 @@ const getClients = async (req, res) => {
   }
 };
 
-const getClientById = async (req, res) => {// Funcion para obtener clientes por id
+const getClientById = async (req, res, next) => {// Funcion para obtener clientes por id
   try {
     const client = await Client.findOne({ where: req.user.role==='admin' ?{id:req.params.id} : { id: req.params.id, createdBy: req.user.id } }); // Si es admin puede ver cualquiera y sino Busca un cliente con el ID y usuario especificados
     if (!client) throw createError(404,'Cliente no encontrado') //Modificado return res.status(404).json({ error: 'Cliente no encontrado' });
@@ -70,7 +70,7 @@ const getClientById = async (req, res) => {// Funcion para obtener clientes por 
   }
 };
 
-const updateClient = async (req, res) => { // Funcion para actualizar clientes 
+const updateClient = async (req, res, next) => { // Funcion para actualizar clientes 
   try {
     const updated = await Client.update(req.body, {
       where: req.user.role === 'admin'
@@ -84,7 +84,7 @@ const updateClient = async (req, res) => { // Funcion para actualizar clientes
   }
 };
 
-const deleteClient = async (req, res) => { // Funcion para Borrar clientes
+const deleteClient = async (req, res, next) => { // Funcion para Borrar clientes
   try {
     const deleted = await Client.destroy({ where: req.user.role === 'admin' ? { id: req.params.id } : { id: req.params.id, createdBy: req.user.id } }); // Si es admin puede eliminar a cualquier y sino Elimina el cliente SOLO si coincide con el ID y usuario
     if (!deleted) throw createError(404,'Cliente no encontrado') //return res.status(404).json({ error: 'Cliente no encontrado o sin permisos' }); 
