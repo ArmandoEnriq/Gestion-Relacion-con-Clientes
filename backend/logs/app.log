@@ -1,0 +1,21 @@
+[2025-04-13T00:03:20.307Z] ERROR: [GET /api/users/] Cannot read properties of undefined (reading 'role')
+[2025-04-13T00:10:24.264Z] ERROR: [GET /api/users] Acceso denegado: permisos insuficientes
+[2025-04-13T00:11:59.370Z] ERROR: [GET /api/users/] next is not defined
+[2025-04-13T00:17:51.952Z] ERROR: [GET /api/users] invalid input value for enum "enum_Users_role": "empleado"
+[2025-04-13T00:22:52.149Z] ERROR: [GET /api/users] invalid input value for enum "enum_Users_role": "empleado"
+[2025-04-13T00:28:41.261Z] ERROR: [POST /api/clients/] Token no proporcionado
+[2025-04-13T00:28:49.920Z] ERROR: [POST /api/users/] Token no proporcionado
+[2025-04-13T00:29:27.338Z] ERROR: [POST /api/auth/login] next is not defined
+[2025-04-13T00:31:30.570Z] ERROR: [POST /api/auth/login] next is not defined
+[2025-04-13T00:32:08.703Z] ERROR: [POST /api/auth/login] next is not defined
+[2025-04-13T00:34:27.361Z] ERROR: [POST /api/auth/login] Usuario no encontrado
+[2025-04-13T00:34:38.684Z] ERROR: [POST /api/auth/login] Usuario no encontrado
+[2025-04-13T00:34:47.528Z] ERROR: [POST /api/auth/login] Usuario no encontrado
+[2025-04-13T00:34:55.096Z] ERROR: [POST /api/auth/login] Usuario no encontrado
+[2025-04-13T00:35:10.114Z] ERROR: [POST /api/auth/login] Contraseña incorrecta
+[2025-04-13T00:35:17.826Z] ERROR: [POST /api/auth/login] Contraseña incorrecta
+[2025-04-13T00:35:25.044Z] ERROR: [POST /api/auth/login] Contraseña incorrecta
+[2025-04-13T00:35:36.576Z] ERROR: [POST /api/auth/login] Contraseña incorrecta
+[2025-04-13T00:35:44.078Z] ERROR: [POST /api/auth/login] Contraseña incorrecta
+[2025-04-13T00:37:05.480Z] ERROR: [GET /api/users/] Acceso denegado: permisos insuficientes
+[2025-04-13T00:37:36.560Z] ERROR: [DELETE /api/clients/5] Acceso denegado: permisos insuficientes
