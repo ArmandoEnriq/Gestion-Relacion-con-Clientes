@@ -25,13 +25,27 @@ const createProject = async (req, res, next) => {
 // Obtener todos los proyectos del usuario
 const getProjects = async (req, res, next) => {
   try {
-    const projects = await Project.findAll({
-      include: {
-        model: Client,
-        where: { createdBy: req.user.id },
-        attributes: ['name', 'company']
-      }
-    });
+    let projects;
+
+    if (req.user.role === 'admin') {
+      // Si el usuario es administrador, obtiene todos los proyectos
+      projects = await Project.findAll({
+        include: {
+          model: Client,
+          attributes: ['name', 'company', 'createdBy'],
+        },
+      });
+    } else {
+      // Si no es administrador, filtra por el usuario
+      projects = await Project.findAll({
+        include: {
+          model: Client,
+          where: { createdBy: req.user.id },
+          attributes: ['name', 'company']
+        },
+      });
+    }
+
     res.json(projects);
   } catch (err) {
     next(err);

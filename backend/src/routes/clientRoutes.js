@@ -2,7 +2,7 @@ const express = require('express'); // Importa el framework Express para crear r
 const auth = require('../middlewares/authMiddleware');
 const validateClient = require('../validators/clientValidator');
 const handleValidationErrors = require('../middlewares/validationMiddleware');
-const requireRole = require('../middlewares/roleMiddleware');
+const authorize = require('../middlewares/roleMiddleware');
 const {createClient,getClients,getClientById,updateClient,deleteClient} = require('../controllers/clientController');
 /**
  * @swagger
@@ -46,7 +46,7 @@ router.use(auth); // proteger todas las rutas de abajo
  *       201:
  *         description: Cliente creado correctamente
  */
-router.post('/', validateClient, handleValidationErrors, createClient); // Primero ejecuta las validaciones y Luego verifica si hubo errores
+router.post('/', validateClient, handleValidationErrors,authorize('admin','manager'), createClient); // Primero ejecuta las validaciones y Luego verifica si hubo errores
 
 /**
  * @swagger
@@ -101,7 +101,7 @@ router.post('/', validateClient, handleValidationErrors, createClient); // Prime
  *       500:
  *         description: Error del servidor
  */
-router.get('/', getClients);
+router.get('/',authorize('admin','manager'), getClients);
 
 /**
  * @swagger
@@ -123,7 +123,7 @@ router.get('/', getClients);
  *       404:
  *         description: Cliente no encontrado
  */
-router.get('/:id', getClientById);
+router.get('/:id',authorize('admin','manager'), getClientById);
 
 /**
  * @swagger
@@ -159,7 +159,7 @@ router.get('/:id', getClientById);
  *       200:
  *         description: Cliente actualizado
  */
-router.put('/:id',requireRole('admin'), updateClient);
+router.put('/:id',authorize('admin','manager'), updateClient);
 
 /**
  * @swagger
@@ -181,6 +181,6 @@ router.put('/:id',requireRole('admin'), updateClient);
  *       403:
  *         description: Acceso denegado
  */
-router.delete('/:id',requireRole('admin'), deleteClient);
+router.delete('/:id',authorize('admin','manager'), deleteClient);
 
 module.exports = router;
