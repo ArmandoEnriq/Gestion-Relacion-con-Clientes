@@ -22,6 +22,8 @@ const Project = sequelize.define('Project', {
   endDate: {
     type: DataTypes.DATEONLY 
   }
+}, {
+  timestamps: true, // Agrega las columnas createdAt y updatedAt automáticamente
 });
 
 module.exports = Project;

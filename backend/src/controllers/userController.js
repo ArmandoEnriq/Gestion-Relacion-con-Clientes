@@ -4,7 +4,7 @@ const createError = require('http-errors'); // Creador de errores que podemos ma
 const getAllEmployees = async (req, res) => {
   try {
     const users = await User.findAll({
-      where: { role: "employee" },
+      where: { role: ["employee","manager"] },
       attributes: ["id", "name", "email", "role"],
     });
     res.json(users);

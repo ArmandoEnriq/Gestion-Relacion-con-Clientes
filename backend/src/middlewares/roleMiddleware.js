@@ -1,12 +1,11 @@
 const createError = require('http-errors');
-const requireRole = (role) => {
-    return (req, res, next) => {
-      if (req.user.role !== role) {
-        next(createError(403,'Acceso denegado: permisos insuficientes'))// Anteriormente return res.status(403).json({ error: 'Acceso denegado: permisos insuficientes' });
-      }
-      next();
-    };
+const authorize = (...allowedRoles) => {
+  return (req, res, next) => {
+    if (!allowedRoles.includes(req.user.role)) {
+      next(createError(403,'Acceso denegado: permisos insuficientes')) // return res.status(403).json({ error: 'Acceso denegado: permiso insuficiente' });
+    }
+    next();
   };
-  
-  module.exports = requireRole;
-  
+};
+
+module.exports = authorize;

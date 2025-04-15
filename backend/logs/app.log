@@ -19,3 +19,33 @@
 [2025-04-13T00:35:44.078Z] ERROR: [POST /api/auth/login] Contraseña incorrecta
 [2025-04-13T00:37:05.480Z] ERROR: [GET /api/users/] Acceso denegado: permisos insuficientes
 [2025-04-13T00:37:36.560Z] ERROR: [DELETE /api/clients/5] Acceso denegado: permisos insuficientes
+[2025-04-13T17:22:28.945Z] ERROR: [POST /api/projects/] WHERE parameter "id" has invalid "undefined" value
+[2025-04-13T22:53:19.692Z] ERROR: [POST /api/auth/register] next is not defined
+[2025-04-13T22:53:40.755Z] ERROR: [POST /api/auth/register] next is not defined
+[2025-04-13T22:53:56.278Z] ERROR: [POST /api/auth/register] next is not defined
+[2025-04-13T23:39:27.760Z] ERROR: [POST /api/clients/] Acceso denegado: permisos insuficientes
+[2025-04-13T23:40:12.076Z] ERROR: [GET /api/clients/] Acceso denegado: permisos insuficientes
+[2025-04-14T00:00:40.597Z] ERROR: [POST /api/projects/] WHERE parameter "id" has invalid "undefined" value
+[2025-04-14T00:01:10.919Z] ERROR: [POST /api/projects/] Cliente no encontrado o no autorizado
+[2025-04-14T00:25:58.937Z] ERROR: [PUT /api/projects/1] No autorizado
+[2025-04-14T00:28:06.887Z] ERROR: [GET /api/clients/] Acceso denegado: permisos insuficientes
+[2025-04-14T00:28:25.574Z] ERROR: [GET /api/projects/] Acceso denegado: permisos insuficientes
+[2025-04-14T00:28:30.984Z] ERROR: [POST /api/projects/] Acceso denegado: permisos insuficientes
+[2025-04-14T00:28:43.124Z] ERROR: [GET /api/users/] Acceso denegado: permisos insuficientes
+[2025-04-14T00:50:16.615Z] ERROR: [DELETE /api/projects/3] No autorizado
+[2025-04-14T00:52:56.947Z] ERROR: [POST /api/auth/login] Usuario no encontrado
+[2025-04-15T14:52:35.145Z] ERROR: [POST /api/auth/login] Usuario no encontrado
+[2025-04-15T14:52:48.379Z] ERROR: [POST /api/auth/login] Contraseña incorrecta
+[2025-04-15T14:52:53.992Z] ERROR: [POST /api/auth/login] Contraseña incorrecta
+[2025-04-15T14:53:17.491Z] ERROR: [POST /api/auth/login] Contraseña incorrecta
+[2025-04-15T14:53:38.488Z] ERROR: [GET /api/projects/] Acceso denegado: permisos insuficientes
+[2025-04-15T14:53:55.759Z] ERROR: [GET /api/projects/] Acceso denegado: permisos insuficientes
+[2025-04-15T14:54:06.570Z] ERROR: [POST /api/auth/login] Usuario no encontrado
+[2025-04-15T15:01:06.586Z] ERROR: [GET /api/projects/] User is not defined
+[2025-04-15T15:01:26.695Z] ERROR: [GET /api/projects/] User is not associated to Project!
+[2025-04-15T15:10:09.704Z] ERROR: [POST /api/projects/] WHERE parameter "id" has invalid "undefined" value
+[2025-04-15T15:22:43.144Z] ERROR: [POST /api/auth/login] Usuario no encontrado
+[2025-04-15T15:23:04.412Z] ERROR: [GET /api/projects/] Acceso denegado: permisos insuficientes
+[2025-04-15T15:33:12.234Z] ERROR: [PUT /api/tasks/7] Acceso denegado: permisos insuficientes
+[2025-04-15T15:33:23.552Z] ERROR: [DELETE /api/tasks/7] Acceso denegado: permisos insuficientes
+[2025-04-15T15:42:30.400Z] ERROR: [PATCH /api/tasks/status/7] Acceso denegado: permisos insuficientes

@@ -5,8 +5,17 @@ const { Op } = require('sequelize'); // Op contiene operadores especiales que Se
 const createClient = async (req, res, next) => { // Funcion para crear clientes
   try {
     const { name, email, phone, company, notes } = req.body; // Extrae datos del cuerpo de la petición
+    // Determina el creador del cliente
+    let assignedCreatedBy = req.user.id;
     // Si es un admin, se permite cualquier usuario a cualquier empleado
-    const createdBy = req.user.role === 'admin' ? req.body.createdBy : req.user.id; 
+    if (req.user.role === 'admin' ) {
+      // Validar que el empleado existe
+      const employee = await User.findOne({ where: { id: createdBy, role: 'manager' } });
+      if (!employee) {
+        throw createError(400, 'El empleado especificado no existe o no es válido');
+      }
+      assignedCreatedBy = createdBy;
+    }
 
     const client = await Client.create({ // Crea al cliente en la base de datos 
       name,
@@ -29,7 +38,7 @@ const getClients = async (req, res, next) => {
 
      const where = req.user.role === 'admin' 
       ? {} // Admin puede ver todos los clientes
-      : { createdBy: req.user.id }; // Usuarios normales solo ven los suyos
+      : { createdBy: req.user.id }; // managers solo ven los suyos
 
     if (name) {
       where.name = { [Op.iLike]: `%${name}%` }; // Op.iLIKE para comparacion insensible a mayúsculas/minúsculas y Los % son comodines en SQL que significan "cualquier secuencia de caracteres" "alberto" "juan alberto" "albertosanchez"

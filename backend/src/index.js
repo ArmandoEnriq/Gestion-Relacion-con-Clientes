@@ -17,6 +17,7 @@ const clientRoutes = require('./routes/clientRoutes'); // Importa las rutas de c
 const authRoutes = require('./routes/authRoutes'); // Importa las rutas de autenticación
 const userRoutes = require('./routes/userRoutes')
 const projectRoutes = require('./routes/projectRoutes') // Importar las rutas de proyectos
+const taskRoutes = require('./routes/taskRoutes'); // Importa las rutas de tareas
 
 app.use(cors({
   origin: 'http://localhost:5173', // Solo permitira solicitudes por este puerto normalmente react
@@ -32,7 +33,8 @@ app.use('/api/clients', clientRoutes); // Monta las rutas de clientes bajo el pr
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes); // Monta las rutas de autenticación bajo el prefijo '/api/auth'
 app.use('/api/projects', projectRoutes);// Monta las rutas de projectos bajo el prefijo '/api/project'
-// Ruta de errores
+app.use('/api/tasks', taskRoutes); // Monta las rutas de tareas bajo el prefijo '/api/tasks'
+// Middleware para manejar errores de forma global
 app.use(errorHandler); 
 
 // Ruta básica de prueba
